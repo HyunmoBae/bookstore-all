@@ -66,7 +66,7 @@ Expression : ($.pull_request.merged, $.pull_request.base.ref)
 Token에 bookstore입력.(자유)
 -> 해당 Token에 넣은 값을 webhook주소에 추가해줘야함.
 ex) 나의경우는 bookstore를 넣었으니 github의 webhook url은 다음과 같음
-http://jenkins.taehyun35802.shop:8080/generic-webhook-trigger/invoke?token=bookstore
+http://jenkins.linkedbook.shop:8080/generic-webhook-trigger/invoke?token=bookstore
 
 ## github 준비
 
