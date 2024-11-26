@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: res-dep
+  name: res-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: res
+  template:
+    metadata:
+      labels:
+        app: res
+    spec:
+      serviceAccountName: aws-reservation
+      containers:
+        - name: reservation
+          image: 178020491921.dkr.ecr.ap-northeast-2.amazonaws.com/reservation:22
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservation-svc
+spec:
+  selector:
+    app: res
+  ports:
+    - port: 8080
+      targetPort: 8080

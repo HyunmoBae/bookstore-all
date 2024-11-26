@@ -1,0 +1,72 @@
+# Global patterns
+.DS_Store
+*.log
+*.tmp
+*.temp
+
+# Node.js (for frontend and potentially backend services)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Frontend specific
+/frontend/.next/
+/frontend/out/
+/frontend/.vercel
+/frontend/.env*.local
+
+# Backend services (common patterns)
+*.pyc
+__pycache__/
+venv/
+*.env
+
+# Build outputs
+/build/
+/dist/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+/coverage/
+
+# Miscellaneous
+*.pem
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Service specific ignores (if needed)
+/mypage/some_specific_file.txt
+/personalize/another_specific_file.log
+/recommend/specific_recommend_file.config
+/reservation/specific_reservation_file.tmp
+
+# Jenkins specific (if needed)
+.jenkins/
+
+# Docker
+*.dockerignore
+
+# AWS
+.aws/
+
+# Temporary files
+*.bak
+*.swp
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

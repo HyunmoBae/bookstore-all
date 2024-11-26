@@ -1,0 +1,40 @@
+-----내 할일-----
+1. cloudfront, ALB에서 S3로 로그수집 , Athena 쿼리 후 quicksight로 시각화 -> grafana로 시각화 완료 -> 
+
+2. POD에서 로그 뭐 뽑을지, 시각화 어떻게 할지 협의 
+
+3. CI/CD 진행 동영상 촬영
+
+4. PPT
+
+-----후순위-----
+1. EKS 오토스케일링
+- karpenter?
+- CA (cluster autoscaler)?
+
+2. argocd ALB로 통합
+
+
+-------------------------------팀 프로젝트 개선사항---------------------------------------
+
+-----필수-----
+책방 예약하면 됐는지 안됐는지 client에게 확인시켜주기.
+
+-----후 순위-----
+마이페이지 프로필수정(이미지) 등 필요 - s3 presigned?
+별지도 - 미구현 상태
+
+-----로그-----
+- 애플리케이션 단위
+수집 : cloudfront, ALB Log 애플리케이션 수준에서 AWS console서비스로 s3로 로그 수집
+시각화 : s3 > athena -> quicksight로 시각화 고려
+
+- POD 단위
+수집 : logging
+시각화 : grafana에서 어떻게 시각화할지 (어떤 유용한 정보를 볼지)
+
+-----테스트-----
+develop branch에서 작동되는 Jenkinsfile인식해서 develop cluster 환경 만들기
+
+
+

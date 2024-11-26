@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "bookstore-ingress"
+  labels:
+    app.kubernetes.io/name: "bookstore-ingress"
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:178020491921:certificate/f9900ac4-ae08-41ed-86e4-560fd02a5ebc
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /reservation
+            backend:
+              service:
+                name: reservation-svc
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /recommend
+            backend:
+              service:
+                name: recommend-svc
+                port:
+                  number: 5000
+          - pathType: Prefix
+            path: /mypage
+            backend:
+              service:
+                name: mypage-svc
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /get-recommendations
+            backend:
+              service:
+                name: personalize-svc
+                port:
+                  number: 5000

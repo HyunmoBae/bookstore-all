@@ -1,0 +1,15 @@
+{
+  "csv": {
+    "embeddingattributes": ["BOOKSTORENAME", "ADDRESS", "DESCRIBE", "X", "Y"],
+    "metadataattributes": [
+      "ESNTL_ID",
+      "PARKING",
+      "SPAPARATE_RESTROOM",
+      "CAFE",
+      "REVIEW",
+      "BOOKTALK",
+      "SPACE_RENTAL"
+    ],
+    "index_id": ["ESNTL_ID"]
+  }
+}

@@ -1,0 +1,36 @@
+====bastion setting====
+
+- eks 보안그룹에 10.0.0.0/16 443포트 추가 (bastion으로 조작할거라면)
+
+--aws cli 설치--
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+	
+--docker 설치--
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+--kubectl 설치--
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+--eksctl 설치--
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+mv /tmp/eksctl /usr/local/bin
+
+--helm 설치--
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+--kubectl, k 자동완성--
+alias k=kubectl
+kubectl completion bash > ~/.kubectl_completion
+complete -F __start_kubectl k
+source ~/.kubectl_completion
+source ~/.bashrc
+
+--eks config 업데이트--
+aws eks update-kubeconfig --name bookstore-cluster

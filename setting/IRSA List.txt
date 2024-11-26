@@ -1,0 +1,27 @@
+Serviceaccounts
+
+- rec-dep
+ServiceAccount : aws-bedrock
+policy: [
+AmazonBedrockFullAccess
+]
+
+- res-dep
+ServiceAccount : aws-mypage
+policy: [
+AmazonDynamoDBFullAccess
+AmazonPersonalizeFullAccess
+AmazonSESFullAccess
+]
+
+- per-dep
+ServiceAccount : aws-personalize
+policy: [
+AmazonPersonalizeFullAccess
+]
+
+- mypage-dep
+ServiceAccount : aws-reservation
+policy: [
+AmazonDynamoDBFullAccess
+]
